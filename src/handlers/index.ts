@@ -1,17 +1,7 @@
 import type { Request, Response } from "express";
-import { isValidDDMMYYYY } from "../utils/dateUtils";
 import Client from "../models/Client";
-import type { IClient } from "../models/Client";
 import mongoose from "mongoose";
 import { generateJWT } from "../utils/jwt";
-
-
-
-// declare global {
-//     namespace Express {
-//         interface Request {
-//             user?: IClient
-//         }}}
 
 
 export const getClient = async (req: Request, res: Response) => {
@@ -88,7 +78,7 @@ export const deleteClient = async (req: Request, res: Response) => {
     try {
       const { id } = req.params
       
-      // Verificar si el id es válido
+      // Verificar si el id es valido
       if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({ msg: 'ID inválido' })
       }

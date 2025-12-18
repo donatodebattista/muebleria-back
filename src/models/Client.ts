@@ -7,6 +7,8 @@ export interface IClient extends Document {
     product: string
     facturado: boolean
     fechaInicio: String
+    dni: string
+    telefono: string
 }
 
 const clientSchema = new Schema<IClient>({
@@ -39,6 +41,13 @@ const clientSchema = new Schema<IClient>({
         required: true,
     },
     fechaInicio:{
+        type: String,
+        required: true,
+    },
+    dni:{
+        type: String,
+    },
+    telefono:{
         type: String,
         required: true,
     }

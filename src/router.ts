@@ -40,6 +40,10 @@ router.post(
 
   body('fechaInicio'),
 
+  body('telefono')
+    .notEmpty()
+    .withMessage('El telefono no puede ir vacio'),
+
   validateRequest,
   createClient
 );
@@ -63,6 +67,10 @@ router.patch(
   body('fechaInicio')
     .notEmpty()
     .withMessage('Debe ingresar una fecha'),
+
+  body('telefono')
+    .notEmpty()
+    .withMessage('El telefono no puede ir vacio'),
 
   validateRequest,
   updateClient
