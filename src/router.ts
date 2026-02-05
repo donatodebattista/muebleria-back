@@ -44,6 +44,7 @@ router.post(
     .notEmpty()
     .withMessage('El telefono no puede ir vacio'),
 
+  body('clientAddress'),
   validateRequest,
   createClient
 );
@@ -72,6 +73,7 @@ router.patch(
     .notEmpty()
     .withMessage('El telefono no puede ir vacio'),
 
+  body('clientAddress'),
   validateRequest,
   updateClient
 );
