@@ -9,6 +9,7 @@ export interface IClient extends Document {
     fechaInicio: String
     dni: string
     telefono: string
+    clientAddress: string
 }
 
 const clientSchema = new Schema<IClient>({
@@ -50,6 +51,9 @@ const clientSchema = new Schema<IClient>({
     telefono:{
         type: String,
         required: true,
+    },
+    clientAddress:{
+        type: String,
     }
 })
 
