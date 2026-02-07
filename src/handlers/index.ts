@@ -53,7 +53,7 @@ export const updateClient = async (req: Request, res: Response) => {
        return res.status(400).json({ message: 'ID inválido' })
     }
 
-    // Comprueba si existe antes de actualizar (para dar feedback claro)
+    // Comprueba si existe antes de actualizar
     const existing = await Client.findById(id)
     if (!existing) {
       return res.status(404).json({ message: 'Cliente no encontrado' })

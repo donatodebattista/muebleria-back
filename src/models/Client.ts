@@ -50,7 +50,7 @@ const clientSchema = new Schema<IClient>({
     },
     telefono:{
         type: String,
-        required: true,
+        required: false,
     },
     clientAddress:{
         type: String,
