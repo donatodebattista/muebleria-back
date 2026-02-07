@@ -6,7 +6,8 @@ import { generateJWT } from "../utils/jwt";
 
 export const getClient = async (req: Request, res: Response) => {
     try{
-      const { id } = req.params      
+      let { id } = req.params;
+      if (Array.isArray(id)) id = id[0];
       if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({ msg: 'ID de cliente inválido' })
       }
@@ -46,8 +47,8 @@ export const createClient = async (req: Request, res: Response) => {
 
 export const updateClient = async (req: Request, res: Response) => {
    try {
-    const { id } = req.params
-
+    let { id } = req.params;
+    if (Array.isArray(id)) id = id[0];
     if (!mongoose.Types.ObjectId.isValid(id)) {
        return res.status(400).json({ message: 'ID inválido' })
     }
@@ -76,9 +77,8 @@ export const updateClient = async (req: Request, res: Response) => {
 
 export const deleteClient = async (req: Request, res: Response) => {
     try {
-      const { id } = req.params
-      
-      // Verificar si el id es valido
+      let { id } = req.params;
+      if (Array.isArray(id)) id = id[0];
       if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({ msg: 'ID inválido' })
       }
