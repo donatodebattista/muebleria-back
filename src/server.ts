@@ -9,7 +9,8 @@ connectDB()
 const app = express()
 
 app.use(cors(corsConfig))
-app.options('*', cors(corsConfig))
+app.options('/*', cors(corsConfig))
+
 
 app.use(express.json())
 
