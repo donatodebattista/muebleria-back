@@ -8,10 +8,9 @@ import { corsConfig } from './config/cors'
 connectDB()
 const app = express()
 
-//CORS
 app.use(cors(corsConfig))
+app.options('*', cors(corsConfig))
 
-//Habilitar lectura de datos de form
 app.use(express.json())
 
 app.use('/', router)
